@@ -1,1 +1,123 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>MargeNette : repérez les produits que vous vendez à perte</title>
+<meta name="description" content="MargeNette calcule la marge nette de chaque produit de votre boutique Shopify et vous alerte dès qu'un produit passe sous votre seuil. Réservez votre place.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:title" content="MargeNette : repérez les produits que vous vendez à perte">
+<meta property="og:description" content="La marge nette de chaque produit, mise à jour automatiquement, avec alerte sous votre seuil.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<style>
+:root{--sapin:#1f3d2b;--perte:#b3261e;--creme:#f6f1e7;--papier:#fffdf8;--encre:#1d211e;--gris:#6b6a63;--filet:#d9d2c2}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--creme);color:var(--encre);font:17px/1.55 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;padding-bottom:calc(88px + env(safe-area-inset-bottom,0px));-webkit-text-size-adjust:100%}
+main,footer{max-width:640px;margin:0 auto;padding:0 20px}
+h1,h2{font-family:Fraunces,Georgia,serif;line-height:1.12;margin:0;color:var(--sapin)}
+h1{font-size:2.1rem;padding-top:calc(32px + env(safe-area-inset-top,0px))}
+h2{font-size:1.45rem;margin-bottom:14px}
+.mono{font-family:"JetBrains Mono",ui-monospace,Menlo,monospace}
+.kicker{font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;color:var(--gris);margin:0 0 10px}
+.lead{font-size:1.1rem;margin:16px 0 24px}
+section{padding:36px 0;border-top:1px solid var(--filet)}
+.btn{display:block;width:100%;text-align:center;background:var(--sapin);color:#fff;text-decoration:none;font-weight:700;font-size:1.05rem;padding:17px 20px;border-radius:10px;min-height:56px}
+.btn:active{opacity:.85}
+.note{font-size:.85rem;color:var(--gris);margin:10px 0 0}
+.releve{background:var(--papier);border:1px solid var(--filet);border-radius:10px;padding:18px;font-size:.92rem}
+.releve .ligne{display:flex;justify-content:space-between;gap:12px;padding:5px 0}
+.releve .ligne span:last-child{white-space:nowrap}
+.releve .total{border-top:2px solid var(--encre);margin-top:8px;padding-top:10px;font-weight:700}
+.perte{color:var(--perte)}
+.ex{font-size:.8rem;color:var(--gris);margin:10px 0 0}
+ul.b{list-style:none;padding:0;margin:0}
+ul.b li{padding:14px 0;border-bottom:1px solid var(--filet)}
+ul.b li:last-child{border:0}
+ul.b strong{display:block;font-family:Fraunces,Georgia,serif;font-size:1.1rem;color:var(--sapin);margin-bottom:2px}
+.offre{background:var(--sapin);color:#fff;border-radius:10px;padding:22px}
+.offre h2{color:#fff}
+.offre .prix{font-size:1.8rem;font-weight:700}
+.offre p{margin:8px 0}
+.barre{position:fixed;left:0;right:0;bottom:0;background:var(--creme);border-top:1px solid var(--filet);padding:12px 20px calc(12px + env(safe-area-inset-bottom,0px))}
+.barre .btn{max-width:600px;margin:0 auto}
+footer{padding:28px 20px 24px;border-top:1px solid var(--filet);font-size:.85rem;color:var(--gris)}
+footer a{color:var(--sapin)}
+details{margin:10px 0}
+summary{cursor:pointer;color:var(--sapin);padding:6px 0}
+details p{margin:6px 0}
+.ac{background:#fff3c4;padding:0 3px}
+@media(min-width:700px){h1{font-size:2.8rem}body{font-size:18px}}
+</style>
+</head>
+<body>
+<main>
+  <p class="kicker mono" style="padding-top:calc(20px + env(safe-area-inset-top,0px));margin-bottom:0">MargeNette</p>
+  <h1 style="padding-top:12px">Repérez les produits que vous vendez à perte, avant qu'ils ne vident votre marge.</h1>
+  <p class="lead">MargeNette calcule la marge nette réelle de chaque produit de votre boutique Shopify et vous alerte dès qu'un produit passe sous votre seuil.</p>
+  <a class="btn" href="https://tally.so/r/QK6A81">Réserver ma place</a>
+  <p class="note">Gratuit, sans carte bancaire. Un seul email, pas de spam.</p>
+
+  <section>
+    <p class="kicker">Le problème, chiffré</p>
+    <h2>Votre prix n'a pas bougé. Vos coûts, si.</h2>
+    <div class="releve mono">
+      <div class="ligne"><span>Prix de vente</span><span>24,90 €</span></div>
+      <div class="ligne"><span>Achat fournisseur</span><span>-16,00 €</span></div>
+      <div class="ligne"><span>Transporteur</span><span>-5,20 €</span></div>
+      <div class="ligne"><span>Frais de paiement</span><span>-0,62 €</span></div>
+      <div class="ligne"><span>Commission marketplace</span><span>-3,74 €</span></div>
+      <div class="ligne total perte"><span>Marge nette</span><span>-0,66 €</span></div>
+    </div>
+    <p class="ex">Exemple illustratif. Ce produit vous coûte 0,66 € à chaque vente, et rien ne vous le signale.</p>
+  </section>
+
+  <section>
+    <h2>Ce que MargeNette fait pour vous</h2>
+    <ul class="b">
+      <li><strong>La marge nette, produit par produit</strong>Achat, port, frais de paiement, commissions : tout est déduit, pas seulement le prix d'achat.</li>
+      <li><strong>Mise à jour automatique</strong>Connexion à Shopify en lecture seule. Vous ne recalculez plus rien à la main.</li>
+      <li><strong>Une alerte avant la perte</strong>Vous fixez un seuil. Dès qu'un produit passe dessous, vous recevez un email.</li>
+    </ul>
+  </section>
+
+  <section>
+    <div class="offre">
+      <p class="kicker mono" style="color:#cfd8cf">Offre fondatrice</p>
+      <h2>Les 20 premiers gardent leur prix à vie.</h2>
+      <p class="prix mono">39 €<span style="font-size:1rem;font-weight:500"> / mois</span></p>
+      <p>Pour suivre jusqu'à 200 produits. Le prix augmentera après les 20 premières places.</p>
+      <p>Accès anticipé ouvert dans les prochaines semaines. Vous êtes prévenu par email, sans engagement.</p>
+    </div>
+  </section>
+
+  <section>
+    <h2>Pour qui ?</h2>
+    <p>Pour les gérants de boutiques Shopify, en particulier ceux qui font du dropshipping ou vendent aussi sur Amazon ou Cdiscount. Si vos coûts bougent et que vos prix restent figés, MargeNette est fait pour vous.</p>
+    <a class="btn" href="https://tally.so/r/QK6A81" style="margin-top:12px">Réserver ma place</a>
+  </section>
+</main>
+
+<footer>
+  <p><strong>MargeNette</strong></p>
+  <details id="mentions"><summary>Mentions légales</summary>
+    <p>Éditeur : <span class="ac">[À COMPLÉTER : nom, prénom]</span>, micro-entrepreneur, SIRET <span class="ac">[À COMPLÉTER]</span>.</p>
+    <p>Adresse : <span class="ac">[À COMPLÉTER]</span>. Contact : <span class="ac">[À COMPLÉTER : email]</span>.</p>
+    <p>Hébergeur : Vercel Inc., 440 N Barranca Ave #4133, Covina, CA 91723, États-Unis.</p>
+  </details>
+  <details id="confidentialite"><summary>Politique de confidentialité</summary>
+    <p>Nous collectons uniquement votre adresse email via le formulaire (Tally) pour vous prévenir de l'ouverture de MargeNette.</p>
+    <p>Vous pouvez demander la suppression de vos données à tout moment : <span class="ac">[À COMPLÉTER : email]</span>.</p>
+  </details>
+  <details id="cgv"><summary>Conditions générales de vente</summary>
+    <p>Aucune vente n'est ouverte à ce jour. Les CGV seront publiées avant l'ouverture des paiements.</p>
+  </details>
+</footer>
+
+<div class="barre"><a class="btn" href="https://tally.so/r/QK6A81">Réserver ma place</a></div>
+</body>
+</html>
 
